@@ -1,17 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Vercel Recruitment BV logo">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-label="Vercel Recruitment Group logo">
   <defs>
-    <linearGradient id="vrb-a" x1="12" y1="8" x2="86" y2="88" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#4f86f7"/>
-      <stop offset=".52" stop-color="#2175d9"/>
-      <stop offset="1" stop-color="#0b153f"/>
+    <linearGradient id="panel-a" x1="180" y1="50" x2="250" y2="245" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f2f5f6"/>
+      <stop offset=".5" stop-color="#54616b"/>
+      <stop offset="1" stop-color="#081018"/>
     </linearGradient>
-    <linearGradient id="vrb-b" x1="24" y1="24" x2="72" y2="74" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="1" stop-color="#eaf2ff"/>
+    <linearGradient id="panel-b" x1="250" y1="40" x2="321" y2="246" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#eef3f7"/>
+      <stop offset=".55" stop-color="#35586d"/>
+      <stop offset="1" stop-color="#0b3e68"/>
     </linearGradient>
+    <linearGradient id="panel-c" x1="334" y1="42" x2="454" y2="246" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f7f8f7"/>
+      <stop offset=".52" stop-color="#68727a"/>
+      <stop offset="1" stop-color="#071018"/>
+    </linearGradient>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#0b153f" flood-opacity=".2"/>
+    </filter>
   </defs>
-  <rect width="96" height="96" rx="18" fill="#0b153f"/>
-  <path d="M48 11 84 77H12L48 11Z" fill="url(#vrb-a)"/>
-  <path d="M34 31h14.8l7 17.2L63 31h13.5L57.2 70H44.8L34 31Z" fill="url(#vrb-b)"/>
-  <circle cx="72" cy="25" r="5" fill="#2175d9"/>
+  <rect width="640" height="420" fill="#fff"/>
+  <g opacity=".32" stroke="#dfe5ea" stroke-width="1">
+    <path d="M0 38h640M0 84h640M0 130h640M0 176h640M0 222h640M0 268h640M0 314h640M0 360h640"/>
+    <path d="M40 0v420M86 0v420M132 0v420M178 0v420M224 0v420M270 0v420M316 0v420M362 0v420M408 0v420M454 0v420M500 0v420M546 0v420M592 0v420"/>
+  </g>
+  <g filter="url(#soft-shadow)">
+    <path d="M137 52h106l77 192h-62z" fill="url(#panel-a)"/>
+    <path d="M251 52h68v192h-64l-40-98z" fill="url(#panel-b)"/>
+    <path d="M330 52h120l-95 192h-63z" fill="url(#panel-c)"/>
+    <path d="M202 101h33v81h-17v-50l-18 9v41h-16v-72z" fill="#dce5ea" opacity=".8"/>
+    <path d="M160 147h33v35h-33z" fill="#dce5ea" opacity=".82"/>
+    <path d="M164 155h25v11h-25zm6 28a9 9 0 1 0 0-18 9 9 0 0 0 0 18zm35 0a9 9 0 1 0 0-18 9 9 0 0 0 0 18z" fill="#101820"/>
+    <path d="M292 44h53v13h-53zm23 13h8v129h-8zM281 77l38-20 37 20m-52 16h38m-38 33h38m-38 33h38" fill="none" stroke="#0a2538" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M400 97h36v41h-36zm-28 41h92v35h-92zm19-19h21v19h-21zm46 0h21v19h-21z" fill="#dce5ea" opacity=".82"/>
+    <path d="M397 179c14-18 29-18 43 0m-51-6 47 32m8-32-47 32" fill="none" stroke="#dce5ea" stroke-width="10" stroke-linecap="round"/>
+    <path d="M242 185a27 27 0 1 1-54 0 27 27 0 0 1 54 0zm-18 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" fill="#dce5ea" opacity=".86" fill-rule="evenodd"/>
+  </g>
+  <text x="320" y="322" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="82" font-weight="900" letter-spacing="3" fill="#000">VERCEL</text>
+  <text x="320" y="370" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="36" font-weight="800" letter-spacing="1" fill="#000">RECRUITMENT GROUP</text>
+  <text x="320" y="400" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#6e747c">Warehousing | Construction | Production</text>
 </svg>

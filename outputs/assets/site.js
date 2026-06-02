@@ -47,7 +47,7 @@
     const safeTitle = escapeXml(title || 'Open role');
     const safeCategory = escapeXml(category || 'Recruitment');
     const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="${safeTitle} generated advert image"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${start}"/><stop offset="1" stop-color="${end}"/></linearGradient><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#0b153f" flood-opacity=".22"/></filter></defs><rect width="640" height="360" rx="28" fill="#f8fbff"/><rect x="34" y="34" width="572" height="292" rx="28" fill="url(#g)"/><circle cx="92" cy="78" r="72" fill="#fff" opacity=".14"/><circle cx="560" cy="312" r="120" fill="#fff" opacity=".12"/><g filter="url(#s)">${iconPath(key)}</g><rect x="54" y="52" width="138" height="34" rx="17" fill="#fff" opacity=".92"/><text x="76" y="75" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#0b153f">${safeCategory}</text><text x="54" y="310" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#fff">${safeTitle}</text></svg>`;
-    return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    return `data:image/png;charset=UTF-8,${encodeURIComponent(svg)}`;
   }
 
   function cardInfo(card) {
@@ -90,6 +90,90 @@
     });
   }
 
+  function ensureAdditionalJobCards() {
+    const grid = document.querySelector('.job-grid');
+    if (!grid) return;
+
+    const jobs = [
+      {
+        href: '/jobs/job-26-pracownik-produkcji-prefabrykatow.html',
+        image: '/assets/images/jobs/bud6.png',
+        title: 'Precast Concrete Production Worker',
+        category: 'Production',
+        metaEn: 'Tilburg, Eindhoven, Haga • Full-time • 20,06 €/hour',
+        metaPl: 'Tilburg, Eindhoven, Haga • Full-time • 20,06 €/hour'
+      },
+      {
+        href: '/jobs/job-27-pracownik-robot-ziemnych.html',
+        image: '/assets/images/jobs/bud1.png',
+        title: 'Earthworks Laborer',
+        category: 'Construction',
+        metaEn: 'Netherlands • Full-time • 18,65 €/hour',
+        metaPl: 'Netherlands • Full-time • 18,65 €/hour'
+      },
+      {
+        href: '/jobs/job-28-monter-konstrukcji-stalowych.html',
+        image: '/assets/images/jobs/bud2.png',
+        title: 'Steel Structure Installer',
+        category: 'Construction',
+        metaEn: 'Netherlands • Full-time • 22,54 €/hour',
+        metaPl: 'Netherlands • Full-time • 22,54 €/hour'
+      },
+      {
+        href: '/jobs/job-29-pracownik-budowy-mostow.html',
+        image: '/assets/images/jobs/bud3.png',
+        title: 'Bridge Construction Worker',
+        category: 'Construction',
+        metaEn: 'Netherlands • Full-time • 21,35 €/hour',
+        metaPl: 'Netherlands • Full-time • 21,35 €/hour'
+      },
+      {
+        href: '/jobs/job-30-monter-zabudowy-suchej.html',
+        image: '/assets/images/jobs/bud4.png',
+        title: 'Drywall Installer',
+        category: 'Construction',
+        metaEn: 'Netherlands • Full-time • 19,20 €/hour',
+        metaPl: 'Netherlands • Full-time • 19,20 €/hour'
+      },
+      {
+        href: '/jobs/job-31-pracownik-dekarski.html',
+        image: '/assets/images/jobs/bud5.png',
+        title: 'Roofing Worker',
+        category: 'Construction',
+        metaEn: 'Netherlands • Full-time • 20,75 €/hour',
+        metaPl: 'Netherlands • Full-time • 20,75 €/hour'
+      },
+      {
+        href: '/jobs/job-32-brukarz.html',
+        image: '/assets/images/jobs/bud7.png',
+        title: 'Paver',
+        category: 'Construction',
+        metaEn: 'Netherlands • Full-time • 19,85 €/hour',
+        metaPl: 'Netherlands • Full-time • 19,85 €/hour'
+      },
+      {
+        href: '/jobs/job-33-monter-rur-kanalizacyjnych.html',
+        image: '/assets/images/jobs/bud8.png',
+        title: 'Sewer Pipe Installer',
+        category: 'Construction',
+        metaEn: 'Netherlands • Full-time • 21,90 €/hour',
+        metaPl: 'Netherlands • Full-time • 21,90 €/hour'
+      }
+    ];
+
+    jobs.forEach((job) => {
+      if (document.querySelector(`[data-href="${job.href}"]`)) return;
+      const card = document.createElement('article');
+      card.className = 'job-card';
+      card.dataset.href = job.href;
+      card.tabIndex = 0;
+      card.role = 'link';
+      card.setAttribute('aria-label', `View details for ${job.title}`);
+      card.innerHTML = `<img class="job-thumb" loading="eager" decoding="async" src="${job.image}" alt="${job.title} thumbnail"/><span class="badge">${job.category}</span><h3>${job.title}</h3><p><span class="lang-copy lang-en">${job.metaEn}</span><span class="lang-copy lang-nl">${job.metaEn}</span><span class="lang-copy lang-pl">${job.metaPl}</span><span class="lang-copy lang-ro">${job.metaEn}</span></p><a class="link" href="${job.href}"><span class="lang-copy lang-en">View details</span><span class="lang-copy lang-nl">View details</span><span class="lang-copy lang-pl">View details</span><span class="lang-copy lang-ro">View details</span></a>`;
+      grid.append(card);
+    });
+  }
+
   function ensureJobCardNavigation() {
     document.querySelectorAll('.job-card[data-href]').forEach((card) => {
       card.addEventListener('click', (event) => {
@@ -126,6 +210,7 @@
     const button = event.target.closest('[data-set-lang]');
     if (button) setLang(button.dataset.setLang);
   });
+  ensureAdditionalJobCards();
   ensureJobThumbnails();
   ensureJobCardNavigation();
   ensureRegistrationRedirect();
